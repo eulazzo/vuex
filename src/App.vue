@@ -1,18 +1,29 @@
 <template>
   <div id="app">
     <h1>Todos</h1>
+    <h2>Completed: {{isDoneTodos}}</h2>
+
+    <h2>Pending {{isPending}}</h2>
     <todo-list  />
-    <todo-form />    
+    <todo-form />      
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList.vue';
 import TodoForm from './components/TodoForm.vue';
+import { mapGetters } from 'vuex'
 
 export default {  
   components:{TodoList,TodoForm},
   name: 'App',
+
+  computed:{
+    ...mapGetters([
+      'isDoneTodos',
+      'isPending',
+    ])
+  }
 }
 </script>
 

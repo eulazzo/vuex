@@ -69,8 +69,11 @@ export const store = createStore({
   },
 
   getters: {
-    doneTodos(state) {
-      return state.todos.filter((todo) => todo.isDone);
+    isDoneTodos(state) {
+      return state.todos.filter((todo) => todo.isDone).length
+    },
+    isPending(state){
+      return state.todos.filter((todo) => !todo.isDone).length
     },
     listTodos(state) {
       return state.todos;
